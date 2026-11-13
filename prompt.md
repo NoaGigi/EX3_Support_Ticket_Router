@@ -10,7 +10,7 @@ A self-contained Google Colab notebook named `ticket_router.ipynb` (standard CPU
 
 ## 2. Model
 
-- Model: `gpt-6-luna` through `ChatOpenAI`, with `temperature=0`.
+- Model: `gpt-6-luna` through `ChatOpenAI`, with `temperature=0` and `reasoning_effort='none'`.
 - Why: sorting a ticket into one of three teams is an easy task, so one of the cheapest
   OpenAI text models is enough. `temperature=0` makes the same ticket go to the same team.
 - Define the model name once, as a constant at the top of the notebook:
@@ -48,7 +48,7 @@ class TicketCategory(BaseModel):
 ```
 
 Create the classifier once, outside the node:
-`classifier = ChatOpenAI(model=MODEL_NAME, temperature=0).with_structured_output(TicketCategory)`
+`classifier = ChatOpenAI(model=MODEL_NAME, temperature=0, reasoning_effort="none").with_structured_output(TicketCategory)`
 
 ## 6. Nodes
 
@@ -132,3 +132,4 @@ Always assert: every result has the four keys, and every branch is reached at le
 
 - Round 1: initial spec.
 - Round 2: removed ‘(ambiguous)’ from ticket texts so it is not sent to the LLM; split the system instruction into lines.
+- Round 3: added reasoning_effort='none' because gpt-6-luna rejected temperature=0.
