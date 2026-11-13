@@ -122,12 +122,13 @@ Always assert: every result has the four keys, and every branch is reached at le
 | 4 | I can't log in, the password reset email never arrives | technical |
 | 5 | Could you add a dark mode? | general |
 | 6 | Just wanted to say thank you, TaskNest is great! | general |
-| 7 | The app crashes every time I try to pay (ambiguous) | technical |
-| 8 | I paid for Premium but the Premium features don't show up (ambiguous) | billing |
-| 9 | Do you offer a student discount? (ambiguous) | billing |
-| 10 | Your app is useless and I want my money back (ambiguous) | billing |
-| 11 | I can't log in, so I can't cancel my subscription (ambiguous) | technical |
+| 7 | The app crashes every time I try to pay | technical |
+| 8 | I paid for Premium but the Premium features don't show up | billing |
+| 9 | Do you offer a student discount? | billing |
+| 10 | Your app is useless and I want my money back | billing |
+| 11 | I can't log in, so I can't cancel my subscription | technical |
 
 ## 10. Revision notes
 
 - Round 1: initial spec.
+- Round 2: removed ‘(ambiguous)’ from ticket texts so it is not sent to the LLM; split the system instruction into lines.
